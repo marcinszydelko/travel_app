@@ -1,0 +1,7 @@
+<h2>Cities <%= @status %> in <%= @country.name %></h2>
+
+<%for city in @cities  %>
+  <ul>
+    <li><%= city.name %></li>
+  </ul>
+<% end %>
