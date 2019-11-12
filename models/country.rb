@@ -64,6 +64,12 @@ class Country
     return results.map { |country| Country.new(country) }
   end
 
+  def self.unvisited()
+    sql = "SELECT * FROM countries WHERE visited = $1"
+    results = SqlRunner.run(sql,["false"])
+    return results.map { |country| Country.new(country) }
+  end
+
   def self.all()
     sql = "SELECT * FROM countries"
     results = SqlRunner.run(sql)
