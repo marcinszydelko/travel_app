@@ -5,9 +5,28 @@ require_relative( '../models/country.rb' )
 also_reload( '../models/*' )
 
 get '/visited' do
-  @name = "Visited"
+  @name = "visited"
   @countries = Country.visited()
   erb(:'countries/index')
+end
+
+
+get '/unvisited' do
+  @name = "unvisited"
+  @countries = Country.unvisited()
+  erb(:'countries/index')
+end
+
+get '/visited/new' do
+  @countries = Country.visited()
+
+  erb(:"countries/new")
+end
+
+post '/visited' do
+  country = Country.new(params)
+  country.save
+  redirect to ("/visited")
 end
 
 get '/visited/:id' do
@@ -17,25 +36,9 @@ get '/visited/:id' do
   erb(:"cities/index")
 end
 
-# get '/unvisited' do # doesnt work
-#   @name = "Unvisited"
-#   @countries = Country.unvisited()
-#   erb(:'countries/index')
-# end
-
-get '/visited/new' do
-  @countries = Country.visited()
-  erb(:"countries/new")
+get '/unvisited/:id' do
+  @status = "unvisited"
+  @country = Country.find(params['id'].to_i)
+  @cities = Country.show_cities_unvisited(params['id'].to_i)
+  erb(:"cities/index")
 end
-
-post '/visited' do
-  country = Country.new(params)
-  country.save
-  redirect to ("/visited")
-end
-#
-# get '/unvisited/:id' do
-#   @country = Country.find(params['id'].to_i)
-#   @cities = Country.show_cities_unvisited(params['id'].to_i)
-#   erb(:"unvisited/country/index")
-# end

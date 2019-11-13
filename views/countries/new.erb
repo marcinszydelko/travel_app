@@ -5,10 +5,12 @@
       <% for country in @countries %>
       <option value="<%= country.id %>"><%= country.name %></option>
       <% end %>
+      <option value="other"></option>
     </select>
   </label>
 
   <label>
+    <br>
     City to visit:<br>
   <input type="text" name="city"><br>
   </label>
