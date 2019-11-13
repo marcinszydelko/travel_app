@@ -42,14 +42,13 @@ get '/visited/:id' do
 end
 
 post '/visited/:id/delete' do
-  # if Country.is_visited?(params['id'].to_i) == true #"t"=true
-  #   value = "visited"
-  # else
-  #   value = "unvisited"
-  # end
-  value = Country.is_visited(params['id'].to_i)
   Country.remove(params['id'])
-  redirect to("/#{value}")
+  redirect to("/visited")
+end
+
+post '/unvisited/:id/delete' do
+  Country.remove(params['id'])
+  redirect to("/unvisited")
 end
 
 get '/unvisited' do
@@ -80,4 +79,11 @@ post '/cities' do
     value = "unvisited"
   end
   redirect to ("/#{value}/#{@city.country_id}")
+end
+
+
+post '/cities/:id/delete' do
+  value = Country.is_visited(params['id'].to_i)
+  City.remove(params['id'].to_i)
+  redirect to("/#{value}/#{params['id']}")
 end

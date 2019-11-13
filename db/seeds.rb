@@ -32,7 +32,7 @@ city1.save()
 
 city2 = City.new({
   "name" => "Brighton",
-  "visited" => "true",
+  "visited" => "false",
   "country_id" => country1.id
   })
 city2.save()

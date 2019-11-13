@@ -3,5 +3,9 @@
 <%for city in @cities  %>
   <ul>
     <li><%= city.name %></li>
+    <form class="" action="/cities/<%= @country.id %>/delete" method="post">
+      <input type="submit"  value="delete">
+    </form>
   </ul>
+
 <% end %>

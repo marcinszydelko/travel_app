@@ -61,6 +61,12 @@ class City
   #   end
   # end
 
+  def self.remove(id)
+    sql = "DELETE FROM cities
+    WHERE id = $1"
+    SqlRunner.run( sql, [id] )
+  end
+
   def self.all()
     sql = "SELECT * FROM cities"
     results = SqlRunner.run(sql)
