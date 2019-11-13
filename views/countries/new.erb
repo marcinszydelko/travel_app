@@ -1,19 +1,11 @@
-<form action="/countries" method="post">
-  <label>
-  Select country:
-    <select name="country_id">
-      <% for country in @countries %>
-      <option value="<%= country.id %>"><%= country.name %></option>
-      <% end %>
-      <option value="other"></option>
-    </select>
-  </label>
-
-  <label>
-    <br>
-    City to visit:<br>
-  <input type="text" name="city"><br>
-  </label>
-
-  <input class="" type='submit' value="Add!">
-</form>
+<div>
+  <form class="" action="/cities/new" method="post">
+    <label for="country_name">Name of <%= @status %> country: </label>
+    <input type="text" id= "country_name" name="name">
+    <!-- <br>
+    <label for="visited">Visited or to visit?</label><br>
+    <input type="radio" id= "visited" name="visited" value="true" required> Visited <br>
+    <input type="radio" id= "visited" name="visited" value="false" required> To visit <br> -->
+    <input type="submit" value="Add this country">
+  </form>
+</div>

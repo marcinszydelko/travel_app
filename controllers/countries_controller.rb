@@ -18,14 +18,14 @@ get '/unvisited' do
 end
 
 get '/visited/new' do
-  @countries = Country.visited()
-
+  @status = "visited"
+  @country = Country.visited()
   erb(:"countries/new")
 end
 
 post '/visited' do
-  country = Country.new(params)
-  country.save
+  @country = Country.new(params)
+  @country.save
   redirect to ("/visited")
 end
 
