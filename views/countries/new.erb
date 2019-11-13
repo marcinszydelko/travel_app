@@ -1,12 +1,12 @@
 <div>
-  <form class="" action="/visited" method="post">
+  <form class="" action="/visited" method="post"><!-- @status instead visited  -->
     <label for="country_name">Name of <%= @status %> country: </label>
     <input type="text" id= "country_name" name="name">
 
     <% if @status == "visited" %>
-    <input style="display: none" type="text" name="visited" value="true" required>
+    <input style="display: none" type="checkbox" name="visited" value="true" checked >
     <% else %>
-    <input style="display: none" type="text" name="visited" value="false" required>
+    <input style="display: none" type="checkbox" name="visited" value="false" checked >
     <% end %>
 
     <input type="submit" value="Add this country">

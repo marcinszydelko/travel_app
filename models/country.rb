@@ -70,6 +70,16 @@ class Country
     return results.map { |country| Country.new(country) }
   end
 
+  def self.is_visited(id)
+    sql = "SELECT * FROM countries WHERE id = $1 "
+    result = SqlRunner.run(sql,[id])[0]
+    if result['visited']
+      return "visited"
+    else
+      return "unvisited"
+    end
+  end
+
   def self.all()
     sql = "SELECT * FROM countries"
     results = SqlRunner.run(sql)
@@ -85,6 +95,12 @@ class Country
   def self.delete_all()
     sql = "DELETE FROM countries"
     SqlRunner.run(sql)
+  end
+
+  def self.remove(id)
+    sql = "DELETE FROM countries
+    WHERE id = $1"
+    SqlRunner.run( sql, [id] )
   end
 
 end

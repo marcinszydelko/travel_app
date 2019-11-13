@@ -5,5 +5,13 @@
 </p>
 
 <%for country in @countries  %>
-  <a href="/<%= @name %>/<%= country.id %>"><div><h2><%= country.name %></h2></div></a>
+  <div>
+    <a href="/<%= @name %>/<%= country.id %>"><p><%= country.name %></p></a>
+  <form class="" action="/visited/<%= country.id %>/delete" method="post">
+    <input type="submit"  value="delete">
+  </form>
+  <form class="" action="/visited/<%= country.id %>/edit" method="post">
+    <input type="submit"  value="edit">
+  </form>
+  </div>
 <% end %>
