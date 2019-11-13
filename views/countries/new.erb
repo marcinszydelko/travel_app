@@ -1,11 +1,14 @@
 <div>
-  <form class="" action="/cities/new" method="post">
+  <form class="" action="/visited" method="post">
     <label for="country_name">Name of <%= @status %> country: </label>
     <input type="text" id= "country_name" name="name">
-    <!-- <br>
-    <label for="visited">Visited or to visit?</label><br>
-    <input type="radio" id= "visited" name="visited" value="true" required> Visited <br>
-    <input type="radio" id= "visited" name="visited" value="false" required> To visit <br> -->
+
+    <% if @status == "visited" %>
+    <input style="display: none" type="text" name="visited" value="true" required>
+    <% else %>
+    <input style="display: none" type="text" name="visited" value="false" required>
+    <% end %>
+
     <input type="submit" value="Add this country">
   </form>
 </div>
