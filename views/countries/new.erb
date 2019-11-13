@@ -1,0 +1,17 @@
+<form action="/countries" method="post">
+  <label>
+  Select country:
+    <select name="country_id">
+      <% for country in @countries %>
+      <option value="<%= country.id %>"><%= country.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    City to visit:<br>
+  <input type="text" name="city"><br>
+  </label>
+
+  <input class="" type='submit' value="Add!">
+</form>

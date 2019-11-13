@@ -17,10 +17,21 @@ get '/visited/:id' do
   erb(:"cities/index")
 end
 
-get '/unvisited' do # doesnt work
-  @name = "Unvisited"
-  @countries = Country.unvisited()
-  erb(:'countries/index')
+# get '/unvisited' do # doesnt work
+#   @name = "Unvisited"
+#   @countries = Country.unvisited()
+#   erb(:'countries/index')
+# end
+
+get '/visited/new' do
+  @countries = Country.visited()
+  erb(:"countries/new")
+end
+
+post '/visited' do
+  country = Country.new(params)
+  country.save
+  redirect to ("/visited")
 end
 #
 # get '/unvisited/:id' do

@@ -1,5 +1,7 @@
 <h1><%= @name %></h1>
 
+
+
 <%for country in @countries  %>
   <a href="/visited/<%= country.id %>"><div><h2><%= country.name %></h2></div></a>
 <% end %>
