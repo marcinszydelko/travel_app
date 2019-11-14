@@ -64,26 +64,30 @@ get '/unvisited/:id' do
   erb(:"cities/index")
 end
 
-get '/cities/new/:id' do
-  @country = Country.find(params[:id])
-  erb(:"cities/new")
+get '/unvisited/:id/edit' do
+  @status = "unvisited"
+  @country = Country.find(params['id'])
+  erb(:"countries/edit")
 end
 
-
-post '/cities' do
-  @city = City.new(params)
-  @city.save()
-  if @city.visited == "t" #"t"=true
-    value = "visited"
-  else
-    value = "unvisited"
-  end
-  redirect to ("/#{value}/#{@city.country_id}")
+post '/unvisited/:id' do
+  @country = Country.find(params['id'])
+  @country.name = params['name']
+  @country.visited = params['visited']
+  @country.update()
+  redirect to ("/unvisited")
 end
 
+get '/visited/:id/edit' do
+  @status = "visited"
+  @country = Country.find(params['id'])
+  erb(:"countries/edit")
+end
 
-post '/cities/:id/delete' do
-  value = Country.is_visited(params['id'].to_i)
-  City.remove(params['id'].to_i)
-  redirect to("/#{value}/#{params['id']}")
+post '/visited/:id' do
+  @country = Country.find(params['id'])
+  @country.name = params['name']
+  @country.visited = params['visited']
+  @country.update()
+  redirect to ("/visited")
 end

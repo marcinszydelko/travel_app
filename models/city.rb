@@ -61,6 +61,16 @@ class City
   #   end
   # end
 
+  def self.is_visited(id)
+    sql = "SELECT * FROM cities WHERE id = $1 "
+    result = SqlRunner.run(sql,[id])[0]
+    if result['visited']
+      return "visited"
+    else
+      return "unvisited"
+    end
+  end
+
   def self.remove(id)
     sql = "DELETE FROM cities
     WHERE id = $1"

@@ -1,0 +1,20 @@
+<div>
+  <form class="" action="/<%= @status %>/<%= @country.id%>" method="post"> <!-- @status instead visited  -->
+    <label for="country_name">Name of <%= @status %> country: </label>
+    <input type="text" id= "country_name" name="name" value="<%= @country.name %>"><br>
+
+    <% if @status == "visited" %>
+    <label for="visited">Visited</label>
+    <input type="radio" name="visited" id="visited" value="true" checked required>
+    <label for="unvisited">Unvisited</label>
+    <input type="radio" name="visited" id="unvisited" value="false" required>
+    <% else %>
+    <label for="visited">Visited</label>
+    <input type="radio" name="visited" id="visited" value="true"  required>
+    <label for="unvisited">Unvisited</label>
+    <input type="radio" name="visited" id="unvisited" value="false" checked required>
+    <% end %>
+
+    <input type="submit" value="Save changes">
+  </form>
+</div>

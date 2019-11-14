@@ -1,0 +1,10 @@
+<div>
+  <form class="" action="/cities/<%= @city.id %>" method="post">
+    <label for="city_name">City name: </label>
+    <input type="text" id="city_name" name="name" value="<%= @city.name %>">
+    <input style="display: none" type="text"  name="visited" value="<%= @country.visited %>"  required>
+    <input style="display: none" type="number" name="country_id" value="<%= @country.id.to_i %>" required>
+
+    <input type="submit" value="Save">
+  </form>
+</div>

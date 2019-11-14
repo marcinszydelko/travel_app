@@ -71,7 +71,7 @@ class Country
   end
 
   def self.is_visited(id)
-    sql = "SELECT * FROM countries WHERE id = $1 "
+    sql = "SELECT * FROM countries WHERE id = $1"
     result = SqlRunner.run(sql,[id])[0]
     if result['visited']
       return "visited"
