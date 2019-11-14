@@ -5,9 +5,17 @@
     <title></title>
   </head>
   <body>
-    <h1><a href="/">Home page</a></h1>
+    <header>
+      <h1>Travel bucket list</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/visited">Visited</a></li>
+        <li><a href="/unvisited">Unvisited</a></li>
+      </ul>
+    </nav>
+    
     <%= yield %>
-
 
   </body>
 </html>
