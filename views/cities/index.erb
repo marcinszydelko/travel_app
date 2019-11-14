@@ -1,21 +1,23 @@
+<div class="edit">
+
 <h2>Cities <%= @status %> in <%= @country.name %></h2>
 
 <p class="">
-  <a class="" href="/cities/new/<%= @country.id %>">Add City</a>
+  <a class="border" href="/cities/new/<%= @country.id %>">Add City</a>
 </p>
+</div>
 
-<%for city in @cities  %>
-  <ul>
-    <li><%= city.name %></li>
-    <form class="" action="/cities/<%= city.id %>/delete" method="post">
-      <input type="submit"  value="delete">
-    </form>
+<div class="display">
+  <%for city in @cities  %>
+    <ul>
+      <li><%= city.name %></li>
+      <form class="" action="/cities/<%= city.id %>/delete" method="post">
+        <input type="submit"  value="delete">
+      </form>
 
-    <form class="" action="/cities/<%= city.id %>/edit" method="get">
-      <input type="submit"  value="edit">
-    </form>
-  </ul>
-
-
-
-<% end %>
+      <form class="" action="/cities/<%= city.id %>/edit" method="get">
+        <input type="submit"  value="edit">
+      </form>
+    </ul>
+  <% end %>
+</div>

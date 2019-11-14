@@ -1,18 +1,19 @@
-<h1><%= @name %></h1>
-
-<p class="">
-  <a class="" href="/<%= @name %>/new">Add country</a>
-</p>
+<div class="top">
+  <h2><%= @name %></h2>
+  <p class="">
+    <a class="border" href="/<%= @name %>/new">Add country</a>
+  </p>
+</div>
 
 <%for country in @countries  %>
-  <div>
+  <div class="display">
     <a href="/<%= @name %>/<%= country.id %>"><p><%= country.name %></p></a>
 
-    <form class="" action="/<%= @name %>/<%= country.id %>/delete" method="post">
+    <form class="show" action="/<%= @name %>/<%= country.id %>/delete" method="post">
       <input type="submit"  value="delete">
     </form>
 
-    <form class="" action="/<%= @name %>/<%= country.id %>/edit" method="get">
+    <form class="show" action="/<%= @name %>/<%= country.id %>/edit" method="get">
       <input type="submit"  value="edit">
     </form>
 

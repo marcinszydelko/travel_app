@@ -2,20 +2,27 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Travel bucket list</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Signika+Negative:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/styles/structure.css">
   </head>
   <body>
-    <header>
-      <h1>Travel bucket list</h1>
+
+
+    <header class="header">
+      <a href="/"><img src="/images/logo.png" alt="logo">
+      <h1>Travel Bucket List</h1></a>
     </header>
-    <nav>
-      <ul>
-        <li><a href="/visited">Visited</a></li>
-        <li><a href="/unvisited">Unvisited</a></li>
+    <main id="main">
+    <nav >
+      <ul class="menu">
+        <li class="menu_item"><a href="/visited">Visited</a></li>
+        <li class="menu_item"><a href="/unvisited">Unvisited</a></li>
       </ul>
     </nav>
-    
-    <%= yield %>
 
+      <%= yield %>
+    </main>
+<footer><p>&copy;2019 Travel Bucket List </p></footer>
   </body>
 </html>
