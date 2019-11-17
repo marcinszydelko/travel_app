@@ -7,15 +7,18 @@
 
 <%for country in @countries  %>
   <div class="display">
-    <a href="/<%= @name %>/<%= country.id %>"><p><%= country.name %></p></a>
+    <tr>
 
-    <form class="show" action="/<%= @name %>/<%= country.id %>/delete" method="post">
+      <td><a href="/<%= @name %>/<%= country.id %>"><p><%= country.name %></p></a></td>
+
+    <td><form class="show" action="/<%= @name %>/<%= country.id %>/delete" method="post">
       <input type="submit"  value="delete">
-    </form>
+    </form></td>
 
-    <form class="show" action="/<%= @name %>/<%= country.id %>/edit" method="get">
+    <td><form class="show" action="/<%= @name %>/<%= country.id %>/edit" method="get">
       <input type="submit"  value="edit">
-    </form>
+    </form></td>
 
+    </tr>
   </div>
 <% end %>

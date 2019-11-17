@@ -13,7 +13,7 @@ end
 post '/cities' do
   @city = City.new(params)
   @city.save()
-  if @city.visited == "t" #"t"=true
+  if @city.visited == "t"
     value = "visited"
   else
     value = "unvisited"
@@ -24,7 +24,7 @@ end
 
 post '/cities/:id/delete' do
   @country = City.find(params['id'])
-  if @country.visited == "t" #"t"=true
+  if @country.visited == "t"
     value = "visited"
   else
     value = "unvisited"
@@ -44,7 +44,7 @@ post '/cities/:id' do
   @city = City.find(params['id'])
   @city.name = params['name']
   @city.update()
-  if @city.visited == "t" #"t"=true
+  if @city.visited == "t"
     value = "visited"
   else
     value = "unvisited"
